@@ -12,8 +12,12 @@ import java.util.List;
 public class Solution {
     public static void main(String[] args) {
         Solution solution = new Solution();
-        String s = solution.reverseWords("a good  example");
-        System.out.println(s);
+        String s = "aaa   bbb   cccc  ddd";
+        String[] s1 = s.trim().split("\\s+");
+        for (String s2: s1){
+            System.out.println(s2);
+            System.out.println(" ".equals(s2));
+        }
     }
 
     /**
@@ -40,12 +44,18 @@ public class Solution {
 
     // 7ms
     public String reverseWords(String s) {
-        String[] s1 = s.trim().split("\\s+");
+        // 正则表达式,可以切割一个或多个空格
+        // String[] s1 = s.trim().split("//s+");
+        String[] s1 = s.trim().split(" ");
         StringBuilder builder = new StringBuilder();
-        for (int i = s1.length - 1; i >= 0; i--) {
-            builder.append(s1[i]).append(" ");
+        for (int i = s1.length - 1; i >= 0; i --){
+            if (!"".equals(s1[i])){
+                builder.append(s1[i]).append(" ");
+            }
         }
-        return builder.toString().trim();
+        return builder.toString();
+
+
 
         // 题解 1ms
         // String[] s1 = s.trim().split(" ");
@@ -57,6 +67,5 @@ public class Solution {
         //     builder.append(s1[i]).append(" ");
         // }
         // return builder.toString().trim();
-
     }
 }
