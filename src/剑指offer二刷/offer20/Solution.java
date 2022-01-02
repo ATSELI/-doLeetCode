@@ -29,6 +29,6 @@ package 剑指offer二刷.offer20;
  */
 public class Solution {
     public boolean isNumber(String s) {
-
+        return true;
     }
 }
